@@ -10,7 +10,7 @@ export class HomePage {
 
   todoList = [{
     itemName : 'Programando',
-    itemDeuDate: '24-11-2022',
+    itemDeuDate: '11-27-22',
     itemPriority : 'Alta',
     itemCategory : 'Proyecto'
 
@@ -18,15 +18,22 @@ export class HomePage {
 
   {
     itemName : 'Diseñando',
-    itemDeuDate: '28-11-2022',
+    itemDeuDate: '11-28-22',
     itemPriority : 'Baja',
     itemCategory : 'Diseño'
 
   },
   {
     itemName : 'Comprando',
-    itemDeuDate: '29-11-2022',
+    itemDeuDate: '11-28-22',
     itemPriority : 'Intermedio',
+    itemCategory : 'Personal'
+
+  },
+  {
+    itemName : 'GYM',
+    itemDeuDate: '11-29-22',
+    itemPriority : 'Alta',
     itemCategory : 'Personal'
 
   },
