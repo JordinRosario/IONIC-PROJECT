@@ -10,12 +10,12 @@ export class AddnewtaskPage implements OnInit {
 
   categorias = ['Trabajo', 'Personal', 'Hogar']
 
-  nombreTarea: string = "nombreTarea";
-  fechaTarea: string = "fechaTarea";
-  prioridadTarea: string = "prioridadTarea";
-  categoriaTarea: string = "categoriaTarea";
+  nombreTarea:any
+  fechaTarea:any
+  prioridadTarea:any
+  categoriaTarea:any
   newTaskObject={}
-  tareaObjeto={}
+  tareaObjeto:any
   
   constructor(public ModalCtrl: ModalController) { }
 
@@ -24,11 +24,11 @@ export class AddnewtaskPage implements OnInit {
   async dismis(){
     await this.ModalCtrl.dismiss(this.tareaObjeto)
   }
-  categoriaSeleccionada(index:number){
+  categoriaSeleccionada(index:any){
     this.categoriaTarea = this.categorias[index]
   }
   adicionarTarea(){
-    this.tareaObjeto = ({nombreitem:this.nombreTarea,fechaitem:this.fechaTarea, prioridadItem:this.prioridadTarea,
+    this.tareaObjeto = ({nombreItem:this.nombreTarea,fechaItem:this.fechaTarea, prioridadItem:this.prioridadTarea,
                           categoriaItem:this.categoriaTarea})
     this.dismis()
   }
