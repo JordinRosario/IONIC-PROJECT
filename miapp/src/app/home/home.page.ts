@@ -9,8 +9,11 @@ import { AddnewtaskPage } from '../addnewtask/addnewtask.page';
 })
 export class HomePage {
 
-
-  todoList = [{
+  /* Add :any */
+  todoList:any =[]
+  
+  /*
+  [{
     itemName : 'Programando',
     itemDeuDate: '11-27-22',
     itemPriority : 'Alta',
@@ -40,7 +43,7 @@ export class HomePage {
 
   },
 ]
-
+*/
 today : number = Date.now();
   constructor(public modalCtrl: ModalController) {}
   
@@ -49,10 +52,13 @@ today : number = Date.now();
       component: AddnewtaskPage
     })
 
-    modal.onDidDismiss().then(newTaskObject=>{
-      console.log(newTaskObject.data);
+    modal.onDidDismiss().then(newTaskObject =>{
+      // console.log(newTaskObject.data);
+      this.todoList.push(newTaskObject.data)
   })
     return await modal.present()
-
+  }
+  delete(index:any){
+    this.todoList.splice(index, 1)
   }
 }

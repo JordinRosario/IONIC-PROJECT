@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-addnewtask',
@@ -8,7 +9,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddnewtaskPage implements OnInit {
 
-  categorias = ['Trabajo', 'Personal', 'Hogar']
+  categorias:any= []
 
   nombreTarea:any
   fechaTarea:any
@@ -17,9 +18,12 @@ export class AddnewtaskPage implements OnInit {
   newTaskObject={}
   tareaObjeto:any
   
-  constructor(public ModalCtrl: ModalController) { }
+  constructor(public ModalCtrl: ModalController, public todoService:TodoService ) { }
 
   ngOnInit() {
+    this.categorias.push('Trabajo')
+    this.categorias.push('Personal')
+    this.categorias.push('Hogar')
   }
   async dismis(){
     await this.ModalCtrl.dismiss(this.tareaObjeto)
@@ -28,8 +32,10 @@ export class AddnewtaskPage implements OnInit {
     this.categoriaTarea = this.categorias[index]
   }
   adicionarTarea(){
-    this.tareaObjeto = ({nombreItem:this.nombreTarea,fechaItem:this.fechaTarea, prioridadItem:this.prioridadTarea,
-                          categoriaItem:this.categoriaTarea})
+    this.tareaObjeto = ({nombreItem:this.nombreTarea,
+                        fechaItem:this.fechaTarea,
+                        prioridadItem:this.prioridadTarea,
+                        categoriaItem:this.categoriaTarea})
     this.dismis()
   }
 }
