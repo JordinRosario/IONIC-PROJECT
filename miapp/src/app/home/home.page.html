@@ -12,7 +12,7 @@
 
 <ion-content [fullscreen]="true">
   
-  <ion-card *ngFor ="let item of todoList">
+  <ion-card *ngFor ="let item of todoList" class="ion-margin">
       <ion-card-header>
         <ion-card-subtitle [style.color]="item.itemPriority === 'Alta' ? 'red': (item.itemPriority === 'Baja' ?'green':'orange' )"  >
           {{ item.itemCategory }}
@@ -29,8 +29,35 @@
           fecha {{ item.itemDeuDate | date:'fullDate'  }}
         </ion-label>
       </ion-card-content>  
+      
+        <ion-row>
+          <ion-item>          
+            <ion-icon name="share-outline"></ion-icon>
+            <p> Compartir</p>
+            
+
+          </ion-item>
+
+          <ion-item>          
+            <ion-icon name="checkmark-outline"></ion-icon>
+            <p> Completar</p>
+            </ion-item>
+            <ion-item>          
+              <ion-icon name="trash-outline"></ion-icon>
+              <p> Cancelar</p>
+              </ion-item>
+        </ion-row>
     </ion-card>
 
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="AddTask()">
+        <ion-icon name="add">
+
+        </ion-icon > 
+      </ion-fab-button>
+      
+      
+    </ion-fab>
     
   
 
